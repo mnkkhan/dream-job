@@ -126,7 +126,7 @@ const CreateProfile: React.FC = () => {
                             </Button>
                         </form>
                         <Typography color='textSecondary' style={{marginTop:'1rem'}} >Have an account?{' '}
-                            <RouterLink to="/signup" color='primary' style={{textDecoration:'none'}}>
+                            <RouterLink to="/signin" color='primary' style={{textDecoration:'none'}}>
                                 Sign In
                                 </RouterLink>
                         </Typography>
