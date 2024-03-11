@@ -1,9 +1,13 @@
 import "./App.css";
+import CompanyCard from "./Components/CardComponents/CompanyCard";
+import { data } from "./Components/datas/data";
+ 
+ 
 
 function App() {
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Base template</h1>
+       <CompanyCard product={data[0]}/>
     </>
   );
 }
