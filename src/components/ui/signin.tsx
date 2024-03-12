@@ -50,7 +50,6 @@ const useStyles= makeStyles((theme)=>({
 const Signup = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
     const classes = useStyles();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

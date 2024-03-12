@@ -50,7 +50,6 @@ const CreateProfile = () => {
 
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
     const classes = useStyles();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");

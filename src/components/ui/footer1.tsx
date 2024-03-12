@@ -59,7 +59,6 @@ const useStyles= makeStyles((theme)=>({
         fontSize:'1.1rem',
         lineHeight:'1.6',
         fontFamily:'sans-serif'
-        
     },
     address:{
         marginBottom:'1.0rem',
