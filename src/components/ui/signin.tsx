@@ -131,7 +131,6 @@ const Signup = () => {
             </Grid>
         </Container>
     </div>
-      
   );
 }
 export default Signup;

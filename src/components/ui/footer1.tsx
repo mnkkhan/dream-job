@@ -156,9 +156,7 @@ const Footer1:React.FC = ()=>{
                         
                     </Grid>
                 </Grid>
-                    
             </Container>
-            
         </footer>
     )
 }
