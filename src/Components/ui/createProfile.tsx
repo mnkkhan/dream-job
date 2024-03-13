@@ -10,7 +10,7 @@ const useStyles= makeStyles((theme)=>({
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
-        height:'100vh',
+        // height:'100vh',
         maxWidth:'750px',
         margin:'4rem auto',
         
@@ -46,29 +46,30 @@ const useStyles= makeStyles((theme)=>({
     }
 }));
 
-const CreateProfile = () => {
+const CreateProfile: React.FC = () => {
 
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
     const classes = useStyles();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const isValidEmail=()=>{
+    const isValidEmail=(email)=>{
         return /^[^\s@]+@[^\s@]+[^\s@]+$/.test(email);
     };
-    const isValidPassword = () =>{
+    const isValidPassword = (password) =>{
         return /^(?=.*[A-Z])(?=.*[!@#$%^&*])(.{6,})$/.test(password);
     }
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         
-        if(!isValidEmail()){
+        if(!isValidEmail(email)){
             alert('Please enter a valid email address!');
             return;
         }
-        if(!isValidPassword() ){
+        if(!isValidPassword(password) ){
             alert('Password must be 6 characters long, contain at least one special character and one uppercase letter!');
             return;
         }

@@ -10,7 +10,7 @@ const useStyles= makeStyles((theme)=>({
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
-        height:'100vh',
+        // height:'100vh',
         maxWidth:'750px',
         margin:'4rem auto 0',
         
@@ -50,6 +50,7 @@ const useStyles= makeStyles((theme)=>({
 const Signup = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
     const classes = useStyles();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -130,6 +131,7 @@ const Signup = () => {
             </Grid>
         </Container>
     </div>
+      
   );
 }
 export default Signup;

@@ -59,6 +59,7 @@ const useStyles= makeStyles((theme)=>({
         fontSize:'1.1rem',
         lineHeight:'1.6',
         fontFamily:'sans-serif'
+        
     },
     address:{
         marginBottom:'1.0rem',
@@ -136,8 +137,8 @@ const Footer1:React.FC = ()=>{
                                 Account
                             </p>
                             <ul className={classes.footerNav}>
-                                <li><Link className={classes.footerLink} to="/">Create account</Link></li>
-                                <li><Link className={classes.footerLink} to="/">Sign in</Link></li>
+                                <li><Link className={classes.footerLink} to="/createProfile">Create account</Link></li>
+                                <li><Link className={classes.footerLink} to="/Signin">Sign in</Link></li>
                                 <li><Link className={classes.footerLink} to="/">iOS app</Link></li>
                                 <li><Link className={classes.footerLink} to="/">Android app</Link></li>
                             </ul>
@@ -155,7 +156,9 @@ const Footer1:React.FC = ()=>{
                         
                     </Grid>
                 </Grid>
+                    
             </Container>
+            
         </footer>
     )
 }
