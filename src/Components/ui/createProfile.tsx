@@ -56,20 +56,20 @@ const CreateProfile: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const isValidEmail=(email)=>{
+    const isValidEmail=()=>{
         return /^[^\s@]+@[^\s@]+[^\s@]+$/.test(email);
     };
-    const isValidPassword = (password) =>{
+    const isValidPassword = () =>{
         return /^(?=.*[A-Z])(?=.*[!@#$%^&*])(.{6,})$/.test(password);
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = (e : React.FormEvent) => {
         e.preventDefault();
         
-        if(!isValidEmail(email)){
+        if(!isValidEmail()){
             alert('Please enter a valid email address!');
             return;
         }
-        if(!isValidPassword(password) ){
+        if(!isValidPassword() ){
             alert('Password must be 6 characters long, contain at least one special character and one uppercase letter!');
             return;
         }

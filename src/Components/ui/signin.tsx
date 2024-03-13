@@ -72,7 +72,7 @@ const Signup = () => {
             alert('Password must be 6 characters long, contain at least one special character and one uppercase letter!');
             return;
         }
-        console.log(name, email, password);
+        console.log( email, password);
         
   };
 
