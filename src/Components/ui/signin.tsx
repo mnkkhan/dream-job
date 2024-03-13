@@ -10,7 +10,7 @@ const useStyles= makeStyles((theme)=>({
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
-        height:'100vh',
+        // height:'100vh',
         maxWidth:'750px',
         margin:'4rem auto 0',
         
@@ -72,7 +72,7 @@ const Signup = () => {
             alert('Password must be 6 characters long, contain at least one special character and one uppercase letter!');
             return;
         }
-        console.log(name, email, password);
+        console.log( email, password);
         
   };
 
