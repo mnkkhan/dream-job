@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, TextField, Button, Typography, Grid } from "@mui/material";
+import { Container, TextField, Button, Typography, Grid, Snackbar } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { makeStyles } from '@mui/styles';
 import {Link as RouterLink } from 'react-router-dom';
@@ -12,7 +12,7 @@ const useStyles= makeStyles((theme)=>({
         alignItems:'center',
         // height:'100vh',
         maxWidth:'750px',
-        margin:'4rem auto',
+        margin:'4rem auto 0',
         
     },
     container:{
@@ -23,6 +23,7 @@ const useStyles= makeStyles((theme)=>({
     },
     formContainer:{
         padding:'2rem',
+        // border:'1px solid #ccc',
         width:'100%',
         boxShadow:'1',
     },
@@ -46,25 +47,25 @@ const useStyles= makeStyles((theme)=>({
     }
 }));
 
-const CreateProfile: React.FC = () => {
-
+const Resetpassword = () => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
     const classes = useStyles();
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [confirmpassword, setConfirmpassword] = useState("");
+    const [error,setError]= useState('');
+    const [openbar,setOpenbar] = useState(false)
     const isValidEmail=()=>{
         return /^[^\s@]+@[^\s@]+[^\s@]+$/.test(email);
     };
     const isValidPassword = () =>{
         return /^(?=.*[A-Z])(?=.*[!@#$%^&*])(.{6,})$/.test(password);
     }
-    const handleSubmit = (e : React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        
+       
         if(!isValidEmail()){
             alert('Please enter a valid email address!');
             return;
@@ -73,9 +74,19 @@ const CreateProfile: React.FC = () => {
             alert('Password must be 6 characters long, contain at least one special character and one uppercase letter!');
             return;
         }
-        console.log(name, email, password);
+        if(password!==confirmpassword){
+            setError('Passwords do not match!');
+            setOpenbar(true);
+            setConfirmpassword('');
+            return;
+        }
+        
+        console.log( email, password);
         
   };
+  const handleClosebar=()=>{
+      setOpenbar(false);
+  }
 
   return (
     <div className={classes.root}>
@@ -83,16 +94,9 @@ const CreateProfile: React.FC = () => {
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={6} style={{padding:'0'}}>
                     <Container className={classes.formContainer}>
-                        <Typography variant="h5" className={classes.formTitle}>Create Profile</Typography>
+                        <Typography variant="h5" className={classes.formTitle}>Reset Password</Typography>
                         <form onSubmit={handleSubmit}>
-                            <TextField
-                                fullWidth
-                                label="Name"
-                                value={name} className={classes.formInput}
-                                onChange={(e) => setName(e.target.value)}
-                                margin="normal"
-                                required
-                            />
+                        
                             <TextField
                                 fullWidth
                                 label="Email"
@@ -110,36 +114,44 @@ const CreateProfile: React.FC = () => {
                                 margin="normal"
                                 required
                             />
+                            <TextField
+                                fullWidth
+                                label="Re-enter Password"
+                                value={confirmpassword} className={classes.formInput}
+                                onChange={(e) => setConfirmpassword(e.target.value)}
+                                margin="normal"
+                                required
+                            />
                             <Button
-                                // fullWidth
                                 type="submit" color='primary'
-                                sx={{  borderRadius:"7%", 
-                                mt: 2, padding:'10px 45px',
+                                sx={{ borderRadius:"3%", 
+                                mt: 2, padding:'10px 15px',
                                 backgroundColor: "#773ab7",
                                 color: "#fff",
                                 "&:hover": {
                                     backgroundColor: "#509",
                                 },
-                                }}
-                            >
-                                Sign Up
+                                }}>
+                                Reset Password
                             </Button>
+                            <Snackbar onClose={handleClosebar} autoHideDuration={6000} open={openbar}
+                                message={ error|| 'Password reset successfully!'}
+                            ></Snackbar>
                         </form>
-                        <Typography color='textSecondary' style={{marginTop:'1rem'}} >Have an account?{' '}
-                            <RouterLink to="/signin" color='primary' style={{textDecoration:'none'}}>
-                                Sign In
-                                </RouterLink>
+                        <Typography style={{marginTop:'.5rem'}} >
+                            <RouterLink to="/signin" style={{textDecoration:'none', color:'grey'}}>Sign in</RouterLink>
                         </Typography>
                     </Container>
                 </Grid>
                 {!isSmallScreen && 
                 <Grid item xs={10} sm={6} className={classes.imageContainer}>
                     <img alt="side-image" className={classes.image}
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG01FFxbZXT2kDSw_tXQKTitG40J4OZbQGww&usqp=CAU"></img>
+                        src="https://t3.ftcdn.net/jpg/04/92/75/18/360_F_492751838_Ybun2zwpQC8AZv11AwZLdXJk4cUrTt5z.jpg"></img>
                 </Grid>}
             </Grid>
         </Container>
     </div>
+      
   );
-};
-export default CreateProfile;
+}
+export default Resetpassword;

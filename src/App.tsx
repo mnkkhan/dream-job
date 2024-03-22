@@ -4,6 +4,7 @@ import CompanyCard from "./Components/CardComponents/CompanyCard";
 import { Route, Routes} from "react-router-dom";
 import { data } from "./Components/datas/data";
 import Layout from "./Components/ui/layout";
+import Resetpassword from "./Components/ui/resetpassword";
 function App() {
   return (
     <div>
@@ -15,6 +16,7 @@ function App() {
         }></Route>
        <Route path="/signin" element={<Layout><Signin/></Layout> }/>
         <Route path="/createProfile" element={<Layout><CreateProfile/></Layout>}/>
+        <Route path="/resetpassword" element={<Layout><Resetpassword/></Layout>}/>
       </Routes>
       
     </div>

@@ -116,7 +116,10 @@ const Signup = () => {
                                 Sign In
                             </Button>
                         </form>
-                        <Typography color='textSecondary' style={{marginTop:'1rem'}} > Dont have an account?{' '}
+                        <Typography style={{marginTop:'.5rem'}} >
+                            <RouterLink to="/resetpassword" style={{textDecoration:'none', color:'grey'}}>Forget password?</RouterLink>
+                        </Typography>
+                        <Typography color='textSecondary' style={{marginTop:'.5rem'}} > Dont have an account?{' '}
                             <RouterLink to="/createProfile" color='primary' style={{textDecoration:'none'}}>
                             Create an Account
                                 </RouterLink>
