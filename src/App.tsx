@@ -1,13 +1,11 @@
 import "./App.css";
-import CompanyCard from "./Components/CardComponents/CompanyCard";
-import { data } from "./Components/datas/data";
- 
- 
+import CompanyCard from "./components/CardComponents/CompanyCard";
+import { data } from "./components/datas/data";
 
 function App() {
   return (
     <>
-       <CompanyCard product={data[0]}/>
+      <CompanyCard product={data[0]} />
     </>
   );
 }
