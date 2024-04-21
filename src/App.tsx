@@ -1,23 +1,13 @@
-import Signin from "./Components/ui/signin";
-import CreateProfile from "./Components/ui/createProfile";
-import CompanyCard from "./Components/CardComponents/CompanyCard";
-import { Route, Routes} from "react-router-dom";
-import { data } from "./Components/datas/data";
-import Layout from "./Components/ui/layout";
+import "./App.css";
+import CompanyCard from "./components/CardComponents/CompanyCard";
+import { data } from "./components/datas/data";
+
 function App() {
   return (
-    <div>
-      <Routes>
-      <Route path="/" element={
-          <Layout>
-            <CompanyCard product={data[0]}/>
-          </Layout>
-        }></Route>
-       <Route path="/signin" element={<Layout><Signin/></Layout> }/>
-        <Route path="/createProfile" element={<Layout><CreateProfile/></Layout>}/>
-      </Routes>
-      
-    </div>
+    <>
+      <CompanyCard product={data[0]} />
+    </>
   );
 }
+
 export default App;
