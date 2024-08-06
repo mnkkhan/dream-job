@@ -1,6 +1,6 @@
 import "./App.css";
-import CompanyCard from "./components/CardComponents/CompanyCard";
-import { data } from "./components/datas/data";
+import CompanyCard from "./Components/CardComponents/CompanyCard";
+import { data } from "./Components/datas/data";
 
 function App() {
   return (
